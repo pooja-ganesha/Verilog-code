@@ -1,0 +1,18 @@
+module jkff(JK,clk,q,qb);
+  input clk;
+  input [1:0] JK;
+  output q,qb;
+  reg q,qb;
+  
+  always @ (posedge clk)
+    begin
+      case (JK)
+        2'b00 : q = q;
+        2'b01 : q = 1'b0;
+        2'b10 : q = 1'b1;
+        2'b11 : q = ~q;
+        default: q = 0;
+      endcase
+      qb = ~q;
+    end
+endmodule
