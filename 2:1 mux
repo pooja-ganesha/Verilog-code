@@ -1,0 +1,16 @@
+module mux(a,b,g,sel,y);
+  input a,b,g,sel;
+  output y;
+  reg y;
+  
+  always @ (a,b,g,sel)
+    begin
+      if (g == 1)
+        y = 1'bz;
+      else if(sel)
+        y = b;
+      else 
+        y = a;
+    end
+  
+endmodule
