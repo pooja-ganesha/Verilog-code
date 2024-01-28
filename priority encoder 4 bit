@@ -1,0 +1,16 @@
+module priority_encode(intr,register);
+  input [3:0] intr;
+  output [3:0] register; 
+  reg [3:0] register;
+  
+  always @ (intr)
+    begin
+      casex (intr)
+        4'bxxx1 : register = 4'd1;
+        4'bxx10 : register = 4'd2;
+        4'bx100 : register = 4'd4;
+        4'b1000 : register = 4'd8;
+        default : register = 4'd0;
+      endcase
+    end
+endmodule
